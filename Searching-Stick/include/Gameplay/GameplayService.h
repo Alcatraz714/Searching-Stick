@@ -15,6 +15,8 @@ namespace Gameplay
 		GameplayController* gameplay_controller;
 		StickCollectionContoller* collection_controller;
 
+		void initializeRandomSeed();
+
 	public:
 		GameplayService();
 		~GameplayService();
@@ -26,8 +28,9 @@ namespace Gameplay
 		// Functions
 		void reset();
 		void searchElement(Collection::SearchType search_type);
-		// Stick
+
 		Collection::SearchType getCurrentSearchType();
+		// Sticks
 		int getNumberOfSticks();
 	};
 }
