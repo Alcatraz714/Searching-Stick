@@ -138,6 +138,9 @@
     <ClCompile Include="source\Gameplay\GameplayController.cpp" />
     <ClCompile Include="source\Gameplay\GameplayService.cpp" />
     <ClCompile Include="source\Gameplay\GameplayView.cpp" />
+    <ClCompile Include="source\Gameplay\StickCollection\StickCollectionController.cpp" />
+    <ClCompile Include="source\Gameplay\StickCollection\StickCollectionModel.cpp" />
+    <ClCompile Include="source\Gameplay\StickCollection\StickCollectionView.cpp" />
     <ClCompile Include="source\Global\Config.cpp" />
     <ClCompile Include="source\Global\ServiceLocator.cpp" />
     <ClCompile Include="source\Graphics\GraphicService.cpp" />
@@ -148,6 +151,7 @@
     <ClCompile Include="source\UI\UIElement\AnimatedImageView.cpp" />
     <ClCompile Include="source\UI\UIElement\ButtonView.cpp" />
     <ClCompile Include="source\UI\UIElement\ImageView.cpp" />
+    <ClCompile Include="source\UI\UIElement\RectangleShapeView.cpp" />
     <ClCompile Include="source\UI\UIElement\TextView.cpp" />
     <ClCompile Include="source\UI\UIElement\UIView.cpp" />
     <ClCompile Include="source\UI\UISerive.cpp" />
@@ -157,6 +161,9 @@
     <ClInclude Include="include\Gameplay\GameplayController.h" />
     <ClInclude Include="include\Gameplay\GameplayService.h" />
     <ClInclude Include="include\Gameplay\GameplayView.h" />
+    <ClInclude Include="include\Gameplay\StickCollection\StickCollectionController.h" />
+    <ClInclude Include="include\Gameplay\StickCollection\StickCollectionModel.h" />
+    <ClInclude Include="include\Gameplay\StickCollection\StickCollectionView.h" />
     <ClInclude Include="include\Global\Config.h" />
     <ClInclude Include="include\Global\ServiceLocator.h" />
     <ClInclude Include="include\Graphics\GraphicService.h" />
