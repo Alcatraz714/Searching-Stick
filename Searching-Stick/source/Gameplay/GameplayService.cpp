@@ -24,5 +24,21 @@ namespace Gameplay
 
 	void GameplayService::reset()
 	{
+
+	}
+
+	void GameplayService::searchElement(Collection::SearchType search_type)
+	{
+
+	}
+
+	Collection::SearchType GameplayService::getCurrentSearchType()
+	{
+		return Collection::SearchType();
+	}
+
+	int GameplayService::getNumberOfSticks()
+	{
+		return 0;
 	}
 }
