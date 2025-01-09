@@ -229,12 +229,12 @@ namespace Gameplay {
 
 		int StickCollectionContoller::getDelayMilliseconds()
 		{
-			return 0;
+			return current_operation_delay;
 		}
 
 		sf::String StickCollectionContoller::getTimeComplexity()
 		{
-			return sf::String();
+			return time_complexity;
 		}
 
 		int Gameplay::Collection::StickCollectionContoller::getNumberOfSticks()

@@ -146,6 +146,7 @@
     <ClCompile Include="source\Graphics\GraphicService.cpp" />
     <ClCompile Include="source\Main\GameService.cpp" />
     <ClCompile Include="source\Sound\SoundService.cpp" />
+    <ClCompile Include="source\UI\GameplayUI\GameplayUIController.cpp" />
     <ClCompile Include="source\UI\MainMenu\MainMenuUIController.cpp" />
     <ClCompile Include="source\UI\SplashScreen\SplashScreenUIController.cpp" />
     <ClCompile Include="source\UI\UIElement\AnimatedImageView.cpp" />
@@ -154,7 +155,7 @@
     <ClCompile Include="source\UI\UIElement\RectangleShapeView.cpp" />
     <ClCompile Include="source\UI\UIElement\TextView.cpp" />
     <ClCompile Include="source\UI\UIElement\UIView.cpp" />
-    <ClCompile Include="source\UI\UISerive.cpp" />
+    <ClCompile Include="source\UI\UIService.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Event\EventService.h" />
@@ -169,6 +170,7 @@
     <ClInclude Include="include\Graphics\GraphicService.h" />
     <ClInclude Include="include\Main\GameService.h" />
     <ClInclude Include="include\Sound\SoundService.h" />
+    <ClInclude Include="include\UI\GameplayUI\GameplayUIController.h" />
     <ClInclude Include="include\UI\Interface\IUIController.h" />
     <ClInclude Include="include\UI\MainMenu\MainMenuUIController.h" />
     <ClInclude Include="include\UI\SplashScreen\SplashScreenUIController.h" />
