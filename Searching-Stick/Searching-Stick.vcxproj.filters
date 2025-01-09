@@ -57,7 +57,7 @@
     <ClCompile Include="source\UI\UIElement\UIView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\UI\UISerive.cpp">
+    <ClCompile Include="source\UI\UIService.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="source\Gameplay\GameplayView.cpp">
@@ -79,6 +79,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="source\UI\UIElement\RectangleShapeView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\UI\GameplayUI\GameplayUIController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -144,6 +147,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\Gameplay\StickCollection\StickCollectionController.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\UI\GameplayUI\GameplayUIController.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
