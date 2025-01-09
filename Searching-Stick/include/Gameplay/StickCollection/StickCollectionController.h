@@ -1,6 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <vector>
+#include <thread>
 
 namespace Gameplay {
 
@@ -24,6 +25,11 @@ namespace Gameplay {
 
             int number_of_comparisons;
             int number_of_array_access;
+            int current_operation_delay;
+
+            std::thread search_thread;
+            void joinThreads();
+            void processSearchThreadState();
 
             void initializeSticks();
             float calculateStickWidth();
@@ -57,6 +63,7 @@ namespace Gameplay {
             int getNumberOfComparisons();
             int getNumberOfArrayAccess();
 
+            int getDelayMilliseconds();
             int getNumberOfSticks();
         };
     }
