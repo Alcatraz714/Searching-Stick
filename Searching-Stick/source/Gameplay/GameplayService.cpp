@@ -18,7 +18,7 @@ namespace Gameplay
 		delete(collection_controller);
 	}
 
-	void GameplayService::initializeRandomSeed()		//helper function for random seed
+	void GameplayService::initializeRandomSeed()
 	{
 		std::srand(static_cast<unsigned int>(std::time(nullptr)));
 	}
