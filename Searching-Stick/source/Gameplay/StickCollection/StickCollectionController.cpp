@@ -14,6 +14,53 @@ namespace Gameplay {
 		using namespace Global;
 		using namespace Graphics;
 
+		void Gameplay::Collection::StickCollectionContoller::processSearchThreadState()
+		{
+			if (search_thread.joinable() && stick_to_search == nullptr)
+			{
+				joinThreads();
+			}
+		}
+
+		void StickCollectionContoller::joinThreads()
+		{
+			search_thread.join();
+		}
+
+		void Gameplay::Collection::StickCollectionContoller::processLinearSearch()
+		{
+			Sound::SoundService* sound_service = Global::ServiceLocator::getInstance()->getSoundService();
+			for (int i = 0; i < sticks.size(); i++)
+			{
+
+
+				number_of_array_access += 1;		// keeps track of the number of sticks array is accessed
+				number_of_comparisons++;				// keeps track of the number of comparisons made between target stick and another stick
+
+				sound_service->playSound(Sound::SoundType::COMPARE_SFX);				// play the comparision sound
+
+				if (sticks[i] == stick_to_search)			// condition to check if the current stick is the target stick
+				{
+					// if the target stick is found, this line of code sets the fill colour of the target's stick view
+					stick_to_search->stick_view->setFillColor(collection_model->found_element_color);
+					stick_to_search = nullptr;			// sets the pointer to null; meaning the search is completed.
+					return;
+				}
+				else
+				{
+					// sets the fill color of the current stick's view to the processing_element_color; meaning the stick is still being checked
+					sticks[i]->stick_view->setFillColor(collection_model->processing_element_color);
+
+					//pauses the thread for a small duration to show the searching operation
+					std::this_thread::sleep_for(std::chrono::milliseconds(current_operation_delay));
+
+					// sets the fill color of the current stick's view back to the default element_color after the pause.
+					sticks[i]->stick_view->setFillColor(collection_model->element_color);
+				}
+
+			}
+		}
+
 		void Gameplay::Collection::StickCollectionContoller::initializeSticks()
 		{
 			float rectangle_width = calculateStickWidth();
@@ -79,6 +126,7 @@ namespace Gameplay {
 
 		void Gameplay::Collection::StickCollectionContoller::destroy()
 		{
+			if (search_thread.joinable()) search_thread.join();
 
 			for (int i = 0; i < sticks.size(); i++) delete(sticks[i]);
 			sticks.clear();
@@ -119,32 +167,6 @@ namespace Gameplay {
 			stick_to_search->stick_view->setFillColor(collection_model->search_element_color);
 		}
 
-		void Gameplay::Collection::StickCollectionContoller::processLinearSearch()
-		{
-
-			for (int i = 0; i < sticks.size(); i++)
-			{
-
-				number_of_array_access += 1;
-				number_of_comparisons++;
-
-				Global::ServiceLocator::getInstance()->getSoundService()->playSound(Sound::SoundType::COMPARE_SFX);
-
-				if (sticks[i] == stick_to_search)
-				{
-					stick_to_search->stick_view->setFillColor(collection_model->found_element_color);
-					stick_to_search = nullptr;
-					return;
-				}
-				else
-				{
-					sticks[i]->stick_view->setFillColor(collection_model->processing_element_color);
-					sticks[i]->stick_view->setFillColor(collection_model->element_color);
-				}
-
-			}
-		}
-
 		void Gameplay::Collection::StickCollectionContoller::initialize()
 		{
 
@@ -167,7 +189,7 @@ namespace Gameplay {
 
 		void Gameplay::Collection::StickCollectionContoller::reset()
 		{
-
+			current_operation_delay = 0;
 			shuffleSticks();
 			updateSticksPosition();
 			resetSticksColor();
@@ -182,7 +204,9 @@ namespace Gameplay {
 			switch (search_type)
 			{
 			case Gameplay::Collection::SearchType::LINEAR_SEARCH:
-				processLinearSearch();
+				current_operation_delay = collection_model->linear_search_delay;
+				search_thread = std::thread(&StickCollectionContoller::processLinearSearch, this);
+				//processLinearSearch(); - direct one frame method
 				break;
 			}
 		}
@@ -200,6 +224,11 @@ namespace Gameplay {
 		int Gameplay::Collection::StickCollectionContoller::getNumberOfArrayAccess()
 		{
 			return number_of_array_access;
+		}
+
+		int StickCollectionContoller::getDelayMilliseconds()
+		{
+			return 0;
 		}
 
 		int Gameplay::Collection::StickCollectionContoller::getNumberOfSticks()
