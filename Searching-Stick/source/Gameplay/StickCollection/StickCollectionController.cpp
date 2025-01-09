@@ -204,6 +204,7 @@ namespace Gameplay {
 			switch (search_type)
 			{
 			case Gameplay::Collection::SearchType::LINEAR_SEARCH:
+				time_complexity = "O(n)"; // worst case/ any case where item is not the first in check where o(1)
 				current_operation_delay = collection_model->linear_search_delay;
 				search_thread = std::thread(&StickCollectionContoller::processLinearSearch, this);
 				//processLinearSearch(); - direct one frame method
@@ -229,6 +230,11 @@ namespace Gameplay {
 		int StickCollectionContoller::getDelayMilliseconds()
 		{
 			return 0;
+		}
+
+		sf::String StickCollectionContoller::getTimeComplexity()
+		{
+			return sf::String();
 		}
 
 		int Gameplay::Collection::StickCollectionContoller::getNumberOfSticks()
