@@ -18,7 +18,7 @@ namespace UI
 			const float binary_search_button_y_position = 600.f;
 			const float quit_button_y_position = 800.f;
 
-			const float background_alpha = 85.f;
+			const float background_alpha = 100.f;
 
 			UIElement::ImageView* background_image;
 
