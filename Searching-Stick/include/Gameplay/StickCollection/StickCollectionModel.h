@@ -25,9 +25,9 @@ namespace Gameplay
             const sf::Color processing_element_color = sf::Color::Red;
 
             int linear_search_delay = 120;
+            int binary_search_delay = 240; // same for now as linear but should be more
 
-
-            int number_of_elements = 100;
+            int number_of_elements = 200;
 
             StickCollectionModel();
             ~StickCollectionModel();

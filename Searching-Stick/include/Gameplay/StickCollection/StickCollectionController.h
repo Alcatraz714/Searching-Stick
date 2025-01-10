@@ -39,11 +39,18 @@ namespace Gameplay {
             void updateSticksPosition();
             void shuffleSticks();
 
+            // Sorting and Binary search reqs
+            void sortElements();
+            bool compareElementsByData(const Stick* a, const Stick* b) const;
+
             void resetSticksColor();
             void resetVariables();
             void resetSearchStick();
-
+            // Linear Search
             void processLinearSearch();
+            // Binary Search
+            void processBinarySearch();
+
             void initializeSticksArray();
             float calculateStickHeight(int array_pos);
 

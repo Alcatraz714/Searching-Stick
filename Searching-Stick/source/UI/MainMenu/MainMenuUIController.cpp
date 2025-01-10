@@ -72,6 +72,7 @@ namespace UI
         void MainMenuUIController::registerButtonCallback()
         {
             linear_search_button->registerCallbackFuntion(std::bind(&MainMenuUIController::linearSearchButtonCallback, this));
+            binary_search_button->registerCallbackFuntion(std::bind(&MainMenuUIController::binarySearchButtonCallback, this));
             quit_button->registerCallbackFuntion(std::bind(&MainMenuUIController::quitButtonCallback, this));
         }
 
@@ -80,6 +81,13 @@ namespace UI
             ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::BUTTON_CLICK);
             GameService::setGameState(GameState::GAMEPLAY);
             ServiceLocator::getInstance()->getGameplayService()->searchElement(Gameplay::Collection::SearchType::LINEAR_SEARCH);
+        }
+
+        void MainMenuUIController::binarySearchButtonCallback()
+        {
+            ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::BUTTON_CLICK);
+            GameService::setGameState(GameState::GAMEPLAY);
+            ServiceLocator::getInstance()->getGameplayService()->searchElement(Gameplay::Collection::SearchType::BINARY_SEARCH);
         }
 
         void MainMenuUIController::quitButtonCallback()
