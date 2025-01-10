@@ -72,6 +72,7 @@ namespace UI
         void MainMenuUIController::registerButtonCallback()
         {
             linear_search_button->registerCallbackFuntion(std::bind(&MainMenuUIController::linearSearchButtonCallback, this));
+            binary_search_button->registerCallbackFuntion(std::bind(&MainMenuUIController::binarySearchButtonCallback, this));
             quit_button->registerCallbackFuntion(std::bind(&MainMenuUIController::quitButtonCallback, this));
         }
 
